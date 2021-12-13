@@ -1,0 +1,54 @@
+body {
+  width: 340px;
+  min-height: 500px;
+  color: #585858;
+}
+
+header {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+}
+
+div {
+  display: block;
+}
+
+#headerLogo {
+  width: 40px;
+  height: 40px;
+}
+
+#options {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  /* opacity: 0.5; */
+  background-image: url("settings_gear.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+#testButton {
+  /* background-color: red; */
+  height: 60px;
+  width: 60px;
+  outline: none;
+  margin: 10px;
+  border: none;
+  border-radius: 2px;
+}
+
+/* #testButton.current {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+} */
