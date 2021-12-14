@@ -1,0 +1,7 @@
+Chrome APIs
+
+chrome.idle
+chrome.alarms
+chrome.runtime.onStartup?
+chrome.runtime.sendMessage?
+chrome.notifications

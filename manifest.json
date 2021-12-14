@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage"],
+  "permissions": ["notifications", "storage", "alarms"],
   "icons": {
     "128": "./css/iki.png"
   },
