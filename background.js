@@ -1,32 +1,44 @@
 // //background.js is the extension's event handler. Listening for browser events, with events fed into it using Chrome Extension API
-chrome.alarms.onAlarm.addListener(function (alarm) {
-  ikiNotification();
+
+//On chrome startup, save the date/time for session data
+chrome.runtime.onStartup.addListener(function () {
+  let startTime = Math.floor(new Date() / 1000);
+  chrome.storage.local.set({ startTime: startTime });
 });
 
-// function launch() {
-//   chrome.app.window.create("popup.html", {
-//     id: "main",
-//     bounds: { width: 620, height: 500 },
-//   });
-// }
+//Event listener for alarm, creates notification
+chrome.alarms.onAlarm.addListener(function (alarm) {
+  ikiNotification();
+  // ikiTone();
+});
 
+//Function to create the notification popup
 function ikiNotification() {
   chrome.notifications.create(
     "reminder",
     {
       type: "basic",
       iconUrl: "./css/iki.png",
-      title: "Iki Reminder title!",
+      title: "Iki Reminder!",
       message: "A reminder to take a breath",
-      priority: 2,
+      priority: 1,
     },
     function (notificationId) {}
   );
 }
 
-// chrome.app.runtime.onLaunched.addListener(launch);
+// //Function to play a notification tone
+// function ikiTone() {
+//   // const tone = document.createElement("audio");
+//   let tone;
+//   tone.src = chrome.extension.getURL("notification-tone.ogg");
+//   tone.play();
+// }
 
+//Event listener for what happens when clicking on the notification
 chrome.notifications.onClicked.addListener(function () {
-  // launch();
+  chrome.tabs.create({
+    url: "https://www.mindful.org/a-five-minute-breathing-meditation/",
+  });
   console.log("clicked!");
 });

@@ -9,14 +9,16 @@ header {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
-  padding: 02px;
+  background-color: lightgoldenrodyellow;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 div {
@@ -57,4 +59,9 @@ div {
   margin: 10px;
   border: none;
   border-radius: 4px;
+}
+
+#session-time {
+  font-size: larger;
+  font-weight: 800;
 }

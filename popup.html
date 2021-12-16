@@ -20,16 +20,33 @@
         <div id="session-header">
           <h2>Your Current Session</h2>
         </div>
-        <div id="session-details"></div>
+        <div id="session-details">
+          <div id="session-time"></div>
+          <button id='session-reset'>Reset</button>
+        </div>
       </div>
       <div id="reminders">
         <div id="reminiders-header">
           <h2>Your Reminders</h2>
         </div>
+        <div id="reminders-options">
+          <form>
+            <label
+              >Remind me every:
+              <input type="number" name="interval" value="30" /> minutes
+            </label>
+            </p>
+            <label
+              >Reminder Tone:
+              <input type="checkbox" name="sound" checked />
+            </label>
+          </form>
+        </div>
       </div>
     </main>
-    <footer>&copy; totsuka 2021</footer>
+    <footer>totsuka 2021</footer>
     <script src="popup.js"></script>
     <script src="alarms.js"></script>
+    <script src="session.js"></script>
   </body>
 </html>
