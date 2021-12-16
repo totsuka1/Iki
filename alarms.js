@@ -6,13 +6,22 @@ form.addEventListener("change", function () {
     interval: form.interval.value,
     soundToggle: form.sound.checked,
   });
+
+  checkAlarm(function (hasAlarm) {
+    if (hasAlarm) {
+      cancelAlarm();
+      createAlarm();
+    }
+  });
 });
 
-// let interval = form.interval.value;
+chrome.storage.local.get({ interval: 30 }, function (data) {
+  form.interval.value = data.interval;
+});
 
 function checkAlarm(callback) {
   chrome.alarms.getAll(function (alarms) {
-    var hasAlarm = alarms.some(function (a) {
+    let hasAlarm = alarms.some(function (a) {
       return a.name == alarmName;
     });
 
@@ -30,11 +39,8 @@ function checkAlarm(callback) {
 
 function createAlarm() {
   chrome.alarms.create(alarmName, {
-    delayInMinutes: 1,
-    periodInMinutes: 1,
-
-    // delayInMinutes: form.interval.value,
-    // periodInMinutes: form.interval.value,
+    delayInMinutes: parseInt(form.interval.value),
+    periodInMinutes: parseInt(form.interval.value),
   });
 }
 

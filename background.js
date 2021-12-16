@@ -9,7 +9,7 @@ chrome.runtime.onStartup.addListener(function () {
 //Event listener for alarm, creates notification
 chrome.alarms.onAlarm.addListener(function (alarm) {
   ikiNotification();
-  // ikiTone();
+  ikiTone();
 });
 
 //Function to create the notification popup
@@ -20,7 +20,7 @@ function ikiNotification() {
       type: "basic",
       iconUrl: "./css/iki.png",
       title: "Iki Reminder!",
-      message: "A reminder to take a breath",
+      message: "Take a breath",
       priority: 1,
     },
     function (notificationId) {}
@@ -35,10 +35,17 @@ function ikiNotification() {
 //   tone.play();
 // }
 
+function ikiTone() {
+  // let tone = document.createElement("audio");
+  let tone;
+  tone.src = chrome.runtime.getURL("notification-tone.ogg");
+  console.log(tone);
+  // tone.play();
+}
+
 //Event listener for what happens when clicking on the notification
 chrome.notifications.onClicked.addListener(function () {
   chrome.tabs.create({
     url: "https://www.mindful.org/a-five-minute-breathing-meditation/",
   });
-  console.log("clicked!");
 });

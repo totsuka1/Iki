@@ -1,6 +1,5 @@
 body {
   width: 340px;
-  /* min-height: 500px; */
   color: #585858;
 }
 
@@ -18,12 +17,12 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* padding: 10px; */
 }
 
 div {
   display: flex;
   margin: 10px;
+  padding: 2px;
 }
 
 #headerLogo {
@@ -35,7 +34,6 @@ div {
   width: 40px;
   height: 40px;
   border: 0;
-  /* opacity: 0.5; */
   background-image: url("settings_gear.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -47,18 +45,25 @@ div {
 #reminders {
   border-style: solid;
   border-color: #585858;
+  justify-content: space-between;
 }
 
 #iki-toggle {
   justify-content: space-around;
 }
 
-#testButton {
+#toggleIki {
   height: 30px;
-  width: 30px;
-  margin: 10px;
-  border: none;
-  border-radius: 4px;
+  position: relative;
+  left: 7px;
+  top: 10px;
+}
+
+#session-reset {
+  height: 30px;
+  position: relative;
+  left: 10px;
+  top: 72px;
 }
 
 #session-time {

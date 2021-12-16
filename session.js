@@ -14,7 +14,7 @@ function sessionTime() {
     "session-time"
   ).innerHTML = `You've been working for ${hoursSince} hours and ${minutesSince} minutes`;
 
-  setTimeout(sessionTime, 100);
+  setTimeout(sessionTime, 200);
 }
 
 function resetStartTime() {
