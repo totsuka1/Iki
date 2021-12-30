@@ -1,10 +1,10 @@
 "use strict";
 let alarmName = "Iki Reminder!";
 let form = document.forms[0];
+
 form.addEventListener("change", function () {
   chrome.storage.local.set({
     interval: form.interval.value,
-    soundToggle: form.sound.checked,
   });
 
   checkAlarm(function (hasAlarm) {
@@ -25,13 +25,13 @@ function checkAlarm(callback) {
       return a.name == alarmName;
     });
 
-    var newLabel;
+    let buttonText;
     if (hasAlarm) {
-      newLabel = "Pause Iki";
+      buttonText = "Pause Iki";
     } else {
-      newLabel = "Activate Iki";
+      buttonText = "Activate Iki";
     }
-    document.getElementById("toggleIki").innerText = newLabel;
+    document.getElementById("toggleIki").innerText = buttonText;
 
     if (callback) callback(hasAlarm);
   });
